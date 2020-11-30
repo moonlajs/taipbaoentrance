@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!-- saved from url=(0115)https://taiaipao.cpiccdn.com/page/third/office-admittance/allowEntryPage?token=35d5f09e-2b8d-4786-8565-b416cd122583 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="applicable-device" content="mobile">
+    <meta name="x5-fullscreen" content="true">
+    
+    <title>准入</title>
+</head>
+
+<body>
+    <div class="access-box">
+        <div class="time-box"><span id="nowTime" style="font-size: 8.8vw;color: white;">11111</span></div>
+        <div class="result-title" style="color: white;">准入</div>
+        <div class="message" style="color: red;">请遵守公司考勤规范出勤打卡</div>
+        <div class="message-box" style="color: white;">
+            <div><span style="font-size: 4.8vw;">田林路201号</span></div>
+            <div><span style="font-size: 4.8vw;">9:00-17:00</span></div>
+            <div><span id="name" style="font-size: 4.8vw;">肖文强</span></div>
+            <div><span style="font-size: 4.8vw;">产险</span></div>
+            <div><span style="font-size: 4.8vw;">研发部</span></div>
+        </div>
+    </div>
+
+
+<style>
+    html {
+        height: 100%;
+        background-color: green;
+        /*background-image: linear-gradient(rgba(10,128,0,0.3), rgba(10,128,0,0.3));*/
+    }
+	.login-box,.declare-box{
+    padding: 10vw 10vw;
+}
+.title{
+    font-size: 5.3vw;
+    font-weight: 600;
+}
+.content{
+    margin-top: 10vw;
+}
+.content .item{
+    display: flex;
+    justify-content: space-between;
+    height: 15vw;
+    border-bottom: 1px solid #dbdbdb;
+    align-items: center;
+}
+
+.content .item img{
+    height: 8vw;
+    width: 22vw;
+}
+.content .item span{
+    font-size: 3.73vw;
+}
+.content .item input{
+    border: none;
+    height: 7vw;
+    font-size: 3.73vw;
+    width: 60%;
+}
+.content .item button{
+    background-color: #fff;
+    border: 1px solid #4E88FE;
+    color: #4E88FE;
+    line-height: 7vw;
+    border-radius: 3.5vw;
+    padding: 0 3vw;
+    font-size: 3.73vw;
+}
+
+.login-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vw;
+    border-radius: 5vw;
+    background-color: #4E88FE;
+    color: #fff;
+    margin-top: 10vw;
+    font-size: 4.3vw;
+}
+
+.declare-box .title{
+    display: flex;
+    justify-content: center;
+    color: #4E88FE;
+}
+.declare-box label{
+    font-size: 4vw;
+    color: #666666;
+}
+.no-entry-box,.access-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10vw 3vw;
+}
+
+.result-title{
+    font-size: 10vw;
+    font-weight: 600;
+    margin-top: 15vw;
+    color: #fff;
+}
+
+.message{
+    margin-top: 15vw;
+    font-weight: 600;
+    font-size: 4.3vw;
+}
+
+.message-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #666;
+    margin-top: 5vw;
+    line-height: 10vw;
+    font-size: 3.8vw;
+}
+.time-box{
+    font-size: 3.8vw;
+}
+</style>
+<script>
+urlData()
+function urlData (){
+	var url_p = document.URL.indexOf('html')
+	
+	document.querySelector('#name').innerHTML = decodeURI(document.URL.substring(url_p+5,document.URL.length))
+}
+getFormatDate()
+function getFormatDate() {
+    var date = new Date();
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    var currentDate = date.getFullYear() + "/" + month + "/" + strDate
+            + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+	document.querySelector('#nowTime').innerHTML = currentDate
+}
+
+
+</script></body></html>
