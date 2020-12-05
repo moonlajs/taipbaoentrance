@@ -135,9 +135,14 @@
 <script>
 urlData()
 function urlData (){
-	var url_p = document.URL.indexOf('html')
+	var url_p = document.URL.indexOf('html?')
 	
-	document.querySelector('#name').innerHTML = decodeURI(document.URL.substring(url_p+5,document.URL.length))
+	var d = location.search;
+	var c = document.URL.substring(url_p+5,document.URL.length)
+	if(d && c){
+		document.querySelector('#name').innerHTML = decodeURI(c)
+
+	}
 }
 getFormatDate()
 function getFormatDate() {
