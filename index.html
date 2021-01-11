@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="applicable-device" content="mobile" />
+    <meta name="x5-fullscreen" content="true">
+    <meta charset="UTF-8">
+    <title>准入</title>
+	<style>
+	
+	.login-box,.declare-box{
+    padding: 10vw 10vw;
+}
+.title{
+    font-size: 5.3vw;
+    font-weight: 600;
+}
+.content{
+    margin-top: 10vw;
+}
+.content .item{
+    display: flex;
+    justify-content: space-between;
+    height: 15vw;
+    border-bottom: 1px solid #dbdbdb;
+    align-items: center;
+}
+
+.content .item img{
+    height: 8vw;
+    width: 22vw;
+}
+.content .item span{
+    font-size: 3.73vw;
+}
+.content .item input{
+    border: none;
+    height: 7vw;
+    font-size: 3.73vw;
+    width: 60%;
+}
+.content .item button{
+    background-color: #fff;
+    border: 1px solid #4E88FE;
+    color: #4E88FE;
+    line-height: 7vw;
+    border-radius: 3.5vw;
+    padding: 0 3vw;
+    font-size: 3.73vw;
+}
+
+.login-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vw;
+    border-radius: 5vw;
+    background-color: #4E88FE;
+    color: #fff;
+    margin-top: 10vw;
+    font-size: 4.3vw;
+}
+
+.declare-box .title{
+    display: flex;
+    justify-content: center;
+    color: #4E88FE;
+}
+.declare-box label{
+    font-size: 4vw;
+    color: #666666;
+}
+.no-entry-box,.access-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10vw 3vw;
+}
+
+.result-title{
+    font-size: 10vw;
+    font-weight: 600;
+    margin-top: 5vw;
+    color: #fff;
+}
+
+.message{
+    margin-top: 5vw;
+    font-weight: 500;
+    font-size: 4.5vw;
+    font-family: "微软雅黑", arial, serif;
+}
+
+.message-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #666;
+    margin-top: 5vw;
+    line-height: 10vw;
+    font-size: 3.8vw;
+}
+.time-box{
+    font-size: 3.8vw;
+}
+	
+	</style>
+</head>
+
+<body>
+    <div class="access-box">
+        <div class="time-box">
+		<span id='nowTime' style="font-size: 8.8vw;color: white;">2021/01/11 09:22:19</span></div>
+        <div class="result-title" style="color: white;">准入</div>
+        <div class="message" style="color: red;">请遵守公司考勤规范出勤打卡</div>
+        <div class="message-box" style="color: white;">
+            <div><span style="font-size: 4.8vw;">田林路201号</span></div>
+            <div><span style="font-size: 4.8vw;">9:00-17:00</span></div>
+            <div><span style="font-size: 4.8vw;">张珂</span></div>
+            <div><span style="font-size: 4.8vw;">产险</span></div>
+            <div><span style="font-size: 4.8vw;">研发部</span></div>
+            <div style="font-size: 4.5vw;font-weight: 700;padding: 1vw 10vw">今日入楼口令:</div>
+            <div>
+                <img src="" id="img" width="50%" height="50%" style="border-radius: 10%;margin-left: 25%">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+      //var date = new Date($.ajax({async: false}).getResponseHeader("Date"));
+	  var date = new Date();
+      var year = date.getFullYear();
+      var month = date.getMonth();
+      var day = date.getDate();
+      var week = date.getDay();
+      var ele = document.getElementById('img');
+      //对月份日期及星期的总和取余得出随机数
+      var randomCode = ((month)*2+day+week)%54;
+      //ele.src='../../../static/office/images/animal/'+randomCode+'.png';
+	  ele.src="https://taiaipao.cpic.com.cn/static/office/images/animal/"+ randomCode +".png"
+
+
+
+
+
+urlData()
+function urlData (){
+	var url_p = document.URL.indexOf('html?')
+	
+	var d = location.search;
+	var c = document.URL.substring(url_p+5,document.URL.length)
+	if(d && c){
+		document.querySelector('#name').innerHTML = decodeURI(c)
+
+	}
+}
+getFormatDate()
+function getFormatDate() {
+    var date = new Date();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+	var hour = date.getHours();
+	var minute = date.getMinutes();
+	var second =date.getSeconds()
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+
+// 2021/01/11 09:22:19
+	document.querySelector('#nowTime').innerHTML = date.getFullYear() + "/" + checkTime(month) + "/" + checkTime(day)
+            + " " + checkTime(hour) + ":" + checkTime(minute) + ":" + checkTime(second)
+
+}
+</script>
+</html>
+<style>
+    html {
+        height: 100%;
+        background-color: green;
+        /*background-image: linear-gradient(rgba(10,128,0,0.3), rgba(10,128,0,0.3));*/
+    }
+</style>
